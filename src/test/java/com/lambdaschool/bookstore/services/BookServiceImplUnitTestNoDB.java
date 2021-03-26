@@ -115,21 +115,32 @@ public class BookServiceImplUnitTestNoDB
     @Test
     public void findAll()
     {
+        System.out.println(bookService.findAll());
+        assertEquals(5,
+            bookService.findAll().size());
     }
 
     @Test
     public void findBookById()
     {
+        assertEquals("Test Apple",
+            bookService.findBookById(1).getTitle());
     }
 
     @Test(expected = ResourceNotFoundException.class)
     public void notFindBookById()
     {
+        assertEquals("Test Apple",
+            bookService.findBookById(10000).getBookid());
     }
 
     @Test
     public void delete()
     {
+        bookService.delete(5);
+        assertEquals(4,
+            bookService.findAll()
+            .size());
     }
 
     @Test
