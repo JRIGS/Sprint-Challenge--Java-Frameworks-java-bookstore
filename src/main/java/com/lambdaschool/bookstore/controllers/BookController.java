@@ -33,7 +33,7 @@ public class BookController
     //@PreAuthorize all requests
 
     // http://localhost:2019/books/books
-    @PreAuthorize(value = "hasAnyRole('ADMIN', 'USER', 'DATA')")
+//    @PreAuthorize(value = "hasAnyRole('ADMIN', 'DATA')")
     @GetMapping(value = "/books",
             produces = {"application/json"})
     public ResponseEntity<?> listAllBooks(HttpServletRequest request)
@@ -44,7 +44,7 @@ public class BookController
     }
 
     // http://localhost:2019/books/book/{bookId}
-    @PreAuthorize(value = "hasAnyRole('ADMIN', 'USER', 'DATA')")
+    @PreAuthorize(value = "hasAnyRole('ADMIN', 'DATA')")
     @GetMapping(value = "/book/{bookId}",
             produces = {"application/json"})
     public ResponseEntity<?> getBookById(HttpServletRequest request,
